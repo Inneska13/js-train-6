@@ -255,6 +255,7 @@ function showCarInfo({
   year = 0,
   country = "Unknown",
 } = {}) {
+  return { ...car, country };
   // Повертаємо об'єкт зі значеннями властивостей
 }
 
@@ -266,10 +267,14 @@ console.log(showCarInfo(car)); // Виведе { brand: 'BMW', year: 2022, count
 function addProperty(array) {
   // Додаємо нову властивість Array до прототипу Array зі значенням myProperty
   // Повертаємо переданий масив з новою властивістю
+  Array.prototype.customProperty = "myProperty";
+  return array;
 }
 
 console.log("Завдання 14 ====================================");
 // Створимо масив newArr з новою властивістю за допомогої нашої функції в яку передамо [1, 2, 3, 4, 5]
+let newArr = addProperty([1, 2, 3, 4, 5]);
 
 // Розкоментуйте рядок нижче після виконня завдання для перевірки
-//console.log(newArr.customProperty); // Виведе myProperty
+
+console.log(newArr.customProperty); // Виведе myProperty
